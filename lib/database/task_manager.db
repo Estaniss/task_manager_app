@@ -1,0 +1,42 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:sqflite/sqflite.dart';
+
+class TaskDatabase {
+  Database _database;
+
+  Future<void> initializeDatabase() async {
+    if (_database != null) return;
+
+    final databasesPath = await getDatabasesPath();
+    final path = '$databasesPath/tasks.db';
+
+    _database = await openDatabase(path,
+        version: 1, onOpen: (db) async {
+      await db.execute('CREATE TABLE tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, deadline TEXT, isCompleted INTEGER, priority INTEGER)');
+    });
+  }
+
+  Future<List<Task>> getTasks() async {
+    final db = await _database;
+    final tasks = await db.query('tasks');
+    return tasks.map((task) => Task.fromMap(task)).toList();
+  }
+
+  Future<void> addTask(Task task) async {
+    final db = await _database;
+    await db.insert('tasks', task.toMap());
+  }
+
+  Future<void> updateTask(Task task) async {
+    final db = await _database;
+    await db.update('tasks', task.toMap(),
+        where: 'id = ?', whereArgs: [task.id]);
+  }
+
+  Future<void> deleteTask(int id) async {
+    final db = await _database;
+    await db.delete('tasks', where: 'id = ?', whereArgs: [id]);
+  }
+}
