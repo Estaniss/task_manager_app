@@ -1,17 +1,14 @@
 # task_manager_app
 
-A new Flutter project.
+Projeto em Flutter desenvolvido 100% com IA - Gemini e ChatGpt
 
-## Getting Started
+## Funções
 
-This project is a starting point for a Flutter application.
+O projeto permite que se crie, edite e delete tarefas do cotidiano, com a finalidade de se organizar mais ao longo do dia.
 
-A few resources to get you started if this is your first Flutter project:
+![image](https://github.com/Estaniss/task_manager_app/assets/91274184/3da8cef0-ebe7-4923-8622-6ee29f653836)
+![image](https://github.com/Estaniss/task_manager_app/assets/91274184/8a11af94-2db1-4c2c-a8b0-7c3ceb8eee68)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
 # task_manager_app
